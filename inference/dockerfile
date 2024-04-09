@@ -1,0 +1,12 @@
+FROM  python:3.10
+
+RUN apt-get update
+
+WORKDIR / inference_folder
+
+COPY inference.py inference.py
+COPY logistic_model.pkl logistic_model.pkl
+COPY scaler.pkl scaler.pkl
+COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
